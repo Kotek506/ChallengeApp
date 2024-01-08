@@ -4,7 +4,7 @@
     {
         private List<int> score = new List<int>();
 
-        private string  name;
+        private string name;
         private string surname;
         private int age;
 
