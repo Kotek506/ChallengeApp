@@ -1,8 +1,8 @@
 namespace ChallengeApp.Tests
 {
-    public class Tests
+    public class EmployeeTests
     {
-       
+
         [Test]
         public void WhenEmpCollectPositiveScores_ShouldReturnCorrectResult()
         {
