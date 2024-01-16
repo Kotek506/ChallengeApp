@@ -4,51 +4,23 @@ namespace ChallengeApp.Tests
     {
 
         [Test]
-        public void WhenEmpCollectPositiveScores_ShouldReturnCorrectResult()
+        public void CheckEmployeeStatistics()
         {
             //arrange
-            var user = new Employee("john", "cena", 44);
-            user.AddScore(5);
-            user.AddScore(6);
-            user.AddScore(10);
+            var employee = new Employee("john", "cena");
+            employee.AddGrade(5);
+            employee.AddGrade(6);
+            employee.AddGrade(10);
 
             // act
-            var result = user.Result;
+            var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(21, result);
-        }
-
-        [Test]
-        public void WhenEmpCollectNegativeScores_ShouldReturnCorrectResult()
-        {
-            //arrange
-            var user = new Employee("john", "swinia", 29);
-            user.AddScore(-5);
-            user.AddScore(-6);
-            user.AddScore(-10);
-
-            // act
-            var result = user.Result;
-
-            // assert
-            Assert.AreEqual(-21, result);
-        }
-
-        [Test]
-        public void WhenEmpCollectAllScores_ShouldReturnCorrectResult()
-        {
-            //arrange
-            var user = new Employee("najnizsza", "cena", 12);
-            user.AddScore(5);
-            user.AddScore(6);
-            user.AddScore(-10);
-
-            // act
-            var result = user.Result;
-
-            // assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(statistics.Max, 10);
+            Assert.AreEqual(statistics.Min, 5);
+            Assert.AreEqual(statistics.Average, 7);
         }
     }
 }
+
+ 
