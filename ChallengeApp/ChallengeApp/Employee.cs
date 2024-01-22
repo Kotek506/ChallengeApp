@@ -16,7 +16,40 @@
 
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("invalid grade value");
+            }
+        }
+        public void AddGrade(long grade)
+        {
+            float flong = (float)grade;
+            this.AddGrade(flong);
+        }
+        public void AddGrade(double grade)
+        {
+            float fdouble = (float)grade;
+            this.AddGrade(fdouble);
+        }
+        public void AddGrade(char grade)
+        {
+            float fchar = Convert.ToSingle(grade.ToString());
+            this.AddGrade(fchar);
+        }
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("this is not a number");
+            }
         }
 
         public Statistics GetStatistics()
@@ -26,7 +59,7 @@
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
-            foreach(var grade in this.grades)
+            foreach (var grade in this.grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
