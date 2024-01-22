@@ -37,8 +37,15 @@
         }
         public void AddGrade(char grade)
         {
-            float fchar = Convert.ToSingle(grade.ToString());
-            this.AddGrade(fchar);
+            if(float.TryParse(grade.ToString(), out float fchar))
+            {
+                this.AddGrade(fchar);
+            }
+            else
+            {
+                Console.WriteLine("this is not a number");
+            }
+         
         }
         public void AddGrade(string grade)
         {
