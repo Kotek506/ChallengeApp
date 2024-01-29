@@ -4,10 +4,10 @@
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
+        public Employee()
         {
-            this.Name = name;
-            this.Surname = surname;
+            //this.Name = name;
+            //this.Surname = surname;
         }
 
 
@@ -37,14 +37,60 @@
         }
         public void AddGrade(char grade)
         {
-            if (float.TryParse(grade.ToString(), out float fchar))
+            //if (grade == 'A')
+            //{
+            //    this.grades.Add(100);
+            //}
+            //else if(grade == 'B')
+            //{
+            //    this.grades.Add(80);
+            //}
+            //else if (grade == 'C')
+            //{
+            //    this.grades.Add(60);
+            //}
+            //else if (grade == 'D')
+            //{
+            //    this.grades.Add(40);
+            //}
+            //else if (grade == 'E')
+            //{
+            //    this.grades.Add(20);
+            //}
+
+            switch (grade)
             {
-                this.AddGrade(fchar);
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong Letter (A-E)");
+                    //this.grades.Add(0);
+                    break;
             }
-            else
-            {
-                Console.WriteLine("this is not a number");
-            }
+
+            // implementacja przed dniem 12
+            //if (float.TryParse(grade.ToString(), out float fchar))
+            //{
+            //    this.AddGrade(fchar);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("this is not a number");
+            //}
 
         }
         public void AddGrade(string grade)
@@ -53,11 +99,34 @@
             {
                 this.AddGrade(result);
             }
-            else
+
+
+            switch (grade)
             {
-                Console.WriteLine("this is not a number");
+                case "A":
+                case "a":
+                    this.grades.Add(100);
+                    break;
+                case "B":
+                    this.grades.Add(80);
+                    break;
+                case "C":
+                    this.grades.Add(60);
+                    break;
+                case "D":
+                    this.grades.Add(40);
+                    break;
+                case "E":
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong Letter (A-E)");
+                    //this.grades.Add(0);
+                    break;
             }
         }
+
+
 
         public Statistics GetStatistics()
         {
@@ -78,6 +147,25 @@
             }
 
             statistics.Average = statistics.Average / this.grades.Count;
+
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
 
 
             return statistics;
