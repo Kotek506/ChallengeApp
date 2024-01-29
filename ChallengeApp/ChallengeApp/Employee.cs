@@ -22,7 +22,7 @@
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("Grade outside of 0-100 range");
             }
         }
         public void AddGrade(long grade)
@@ -37,27 +37,6 @@
         }
         public void AddGrade(char grade)
         {
-            //if (grade == 'A')
-            //{
-            //    this.grades.Add(100);
-            //}
-            //else if(grade == 'B')
-            //{
-            //    this.grades.Add(80);
-            //}
-            //else if (grade == 'C')
-            //{
-            //    this.grades.Add(60);
-            //}
-            //else if (grade == 'D')
-            //{
-            //    this.grades.Add(40);
-            //}
-            //else if (grade == 'E')
-            //{
-            //    this.grades.Add(20);
-            //}
-
             switch (grade)
             {
                 case 'A':
@@ -77,9 +56,7 @@
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter (A-E)");
-                    //this.grades.Add(0);
-                    break;
+                    throw new Exception("Wrong char letter (should be in range A-E)");
             }
 
             // implementacja przed dniem 12
@@ -99,31 +76,32 @@
             {
                 this.AddGrade(result);
             }
-
-
-            switch (grade)
+            else
             {
-                case "A":
-                case "a":
-                    this.grades.Add(100);
-                    break;
-                case "B":
-                    this.grades.Add(80);
-                    break;
-                case "C":
-                    this.grades.Add(60);
-                    break;
-                case "D":
-                    this.grades.Add(40);
-                    break;
-                case "E":
-                    this.grades.Add(20);
-                    break;
-                default:
-                    Console.WriteLine("Wrong Letter (A-E)");
-                    //this.grades.Add(0);
-                    break;
+                switch (grade)
+                {
+                    case "A":
+                    case "a":
+                        this.grades.Add(100);
+                        break;
+                    case "B":
+                        this.grades.Add(80);
+                        break;
+                    case "C":
+                        this.grades.Add(60);
+                        break;
+                    case "D":
+                        this.grades.Add(40);
+                        break;
+                    case "E":
+                        this.grades.Add(20);
+                        break;
+                    default:
+                        throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
+                }
             }
+
+
         }
 
 
