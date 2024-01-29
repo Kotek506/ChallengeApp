@@ -18,7 +18,7 @@
         {
             if (grade >= 0 && grade <= 100)
             {
-                this.grades.Add(grade);
+                this.AddGrade(grade);
             }
             else
             {
@@ -41,19 +41,19 @@
             {
                 case 'A':
                 case 'a':
-                    this.grades.Add(100);
+                    this.AddGrade(100);
                     break;
                 case 'B':
-                    this.grades.Add(80);
+                    this.AddGrade(80);
                     break;
                 case 'C':
-                    this.grades.Add(60);
+                    this.AddGrade(60);
                     break;
                 case 'D':
-                    this.grades.Add(40);
+                    this.AddGrade(40);
                     break;
                 case 'E':
-                    this.grades.Add(20);
+                    this.AddGrade(20);
                     break;
                 default:
                     throw new Exception("Wrong char letter (should be in range A-E)");
@@ -82,19 +82,19 @@
                 {
                     case "A":
                     case "a":
-                        this.grades.Add(100);
+                        this.AddGrade(100);
                         break;
                     case "B":
-                        this.grades.Add(80);
+                        this.AddGrade(80);
                         break;
                     case "C":
-                        this.grades.Add(60);
+                        this.AddGrade(60);
                         break;
                     case "D":
-                        this.grades.Add(40);
+                        this.AddGrade(40);
                         break;
                     case "E":
-                        this.grades.Add(20);
+                        this.AddGrade(20);
                         break;
                     default:
                         throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
