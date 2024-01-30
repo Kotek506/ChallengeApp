@@ -5,9 +5,7 @@
         private List<float> grades = new List<float>();
 
         public Employee(string name, string surname, string sex)
-            : base(name, surname, sex)
-        {
-        }
+            : base(name, surname, sex) { }
 
         public void AddGrade(float grade)
         {
@@ -53,16 +51,6 @@
                 default:
                     throw new Exception("Wrong char letter (should be in range A-E)");
             }
-
-            // implementacja przed dniem 12
-            //if (float.TryParse(grade.ToString(), out float fchar))
-            //{
-            //    this.AddGrade(fchar);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("this is not a number");
-            //}
 
         }
         public void AddGrade(string grade)
