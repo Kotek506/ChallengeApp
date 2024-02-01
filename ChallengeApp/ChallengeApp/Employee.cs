@@ -51,7 +51,6 @@
                 default:
                     throw new Exception("Wrong char letter (should be in range A-E)");
             }
-
         }
         public void AddGrade(string grade)
         {
@@ -83,22 +82,13 @@
                         throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
                 }
             }
-
-
         }
-
-
-
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
-
-            {
-
-            }
 
             foreach (var grade in this.grades)
             {
@@ -127,11 +117,7 @@
                     statistics.AverageLetter = 'E';
                     break;
             }
-
-
             return statistics;
         }
-
-
     }
 }
