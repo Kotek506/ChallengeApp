@@ -17,7 +17,7 @@ Console.WriteLine("=======================");
 Console.WriteLine();
 
 
-var employee = new Employee();
+var supervisor = new Supervisor("Ar", "Tur");
 
 while (true)
 {
@@ -30,7 +30,7 @@ while (true)
 
     try
     {
-        employee.AddGrade(input);
+        supervisor.AddGrade(input);
     }
     catch (Exception e)
     {
@@ -38,7 +38,7 @@ while (true)
     }
     
 }
-var statistics = employee.GetStatistics();
+var statistics = supervisor.GetStatistics();
 Console.WriteLine($"AVG: {statistics.Average}");
 Console.WriteLine($"MIN: {statistics.Min}");
 Console.WriteLine($"MAX: {statistics.Max}");
