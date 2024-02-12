@@ -12,7 +12,7 @@
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
-        
+
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -130,7 +130,7 @@
                         break;
                     default:
                         throw new Exception("Wrong Grade - Please use school grades");
-                }                
+                }
             }
             else if (float.TryParse(grade, out float result))
             {
@@ -145,20 +145,24 @@
                         this.AddGrade(100);
                         break;
                     case "B":
+                    case "b":
                         this.AddGrade(80);
                         break;
                     case "C":
+                    case "c":
                         this.AddGrade(60);
                         break;
                     case "D":
+                    case "d":
                         this.AddGrade(40);
                         break;
                     case "E":
+                    case "e":
                         this.AddGrade(20);
                         break;
                     default:
                         throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
-                }             
+                }
             }
         }
 
