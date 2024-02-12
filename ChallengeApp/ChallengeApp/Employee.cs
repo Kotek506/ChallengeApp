@@ -16,7 +16,7 @@
         {
             if (grade >= 0 && grade <= 100)
             {
-                this.AddGrade(grade);
+                this.grades.Add(grade);
             }
             else
             {

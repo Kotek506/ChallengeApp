@@ -12,11 +12,12 @@
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
+        
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
-                this.AddGrade(grade);
+                this.grades.Add(grade);
             }
             else
             {
@@ -68,11 +69,8 @@
         }
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else
+            var table = new[] { "1", "2", "-2", "2-", "+2", "2+", "3", "-3", "3-", "+3", "3+", "4", "-4", "4-", "+4", "4+", "5", "-5", "5-", "+5", "5+", "6", "-6", "6-" };
+            if (table.Contains(grade))
             {
                 switch (grade)
                 {
@@ -132,9 +130,38 @@
                         break;
                     default:
                         throw new Exception("Wrong Grade - Please use school grades");
-                }
+                }                
+            }
+            else if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                switch (grade)
+                {
+                    case "A":
+                    case "a":
+                        this.AddGrade(100);
+                        break;
+                    case "B":
+                        this.AddGrade(80);
+                        break;
+                    case "C":
+                        this.AddGrade(60);
+                        break;
+                    case "D":
+                        this.AddGrade(40);
+                        break;
+                    case "E":
+                        this.AddGrade(20);
+                        break;
+                    default:
+                        throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
+                }             
             }
         }
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
