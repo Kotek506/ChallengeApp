@@ -161,7 +161,7 @@
                         this.AddGrade(20);
                         break;
                     default:
-                        throw new Exception("Wrong Letter (A-E) or no number in range 0-100 provided");
+                        throw new Exception("Wrong Letter (A-E), no School Grade or no number in range 0-100 provided");
                 }
             }
         }
